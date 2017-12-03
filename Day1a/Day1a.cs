@@ -8,7 +8,7 @@ namespace Solutions
 {
     public class Day1a
     {
-        public object DigitCount(string input)
+        public int DigitCount(string input)
         {
             var solution = 0;
             for (var i = 0; i < (input.Length); i++)
