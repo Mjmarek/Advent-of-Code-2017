@@ -13,16 +13,12 @@ namespace Solutions
             var solution = 0;
             for (var i = 0; i < (input.Length); i++)
             {
-                if (i == input.Length - 1)
+                var current = input[i];
+                var next = (i == input.Length - 1) ? input[0] : input[i + 1];
+
+                if (current == next)
                 {
-                    if (input[i] == input[0])
-                    {
-                        solution = ConvertToNumber(input[i]) + solution;
-                    }
-                }
-                else if (input[i] == input[i + 1])
-                {
-                    solution = ConvertToNumber(input[i]) + solution;
+                    solution = ConvertToNumber(current) + solution;
                 }
             };
             return solution;
