@@ -25,7 +25,18 @@ namespace Solutions.test
             var target = new Day1a();
             var result = target.DigitCount(input);
 
-            Assert.AreEqual(4, result, "First example input should result in 4.");
+            Assert.AreEqual(4, result, "Second example input should result in 4.");
+        }
+
+        [TestMethod]
+        public void ShouldReturn1For1()
+        {
+            string input = "1";
+
+            var target = new Day1a();
+            var result = target.DigitCount(input);
+
+            Assert.AreEqual(1, result, "Test input should result in 1.");
         }
     }
 }
