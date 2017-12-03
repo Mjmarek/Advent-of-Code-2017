@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Day1bTest.cs" />
     <Compile Include="Day1aTest.cs" />
+    <Compile Include="Day2aTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
