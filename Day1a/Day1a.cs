@@ -17,17 +17,21 @@ namespace Solutions
                 {
                     if (input[i] == input[0])
                     {
-                        var num = (input[i]).ToString();
-                        solution = int.Parse(num) + solution;
+                        solution = ConvertToNumber(input[i]) + solution;
                     }
                 }
                 else if (input[i] == input[i + 1])
                 {
-                    var num = (input[i]).ToString();
-                    solution = int.Parse(num) + solution;
+                    solution = ConvertToNumber(input[i]) + solution;
                 }
             };
             return solution;
+        }
+
+        private static int ConvertToNumber(char toConvert)
+        {
+            var num = toConvert.ToString();
+            return int.Parse(num);
         }
     }
 }
