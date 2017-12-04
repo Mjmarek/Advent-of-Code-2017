@@ -57,7 +57,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Day1a\Solutions.csproj">
+    <ProjectReference Include="..\Solutions\Solutions.csproj">
       <Project>{08a32b6f-5dc3-4bc7-b7cb-4fada2f51038}</Project>
       <Name>Solutions</Name>
     </ProjectReference>
