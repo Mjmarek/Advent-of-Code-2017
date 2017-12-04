@@ -38,7 +38,6 @@ namespace Solutions
             {
                 nextIndex = nextIndex - (Input.Length);
             }
-            Console.WriteLine(nextIndex);
             return Input[nextIndex];
         }
 
