@@ -29,37 +29,33 @@ namespace Challenges
 
             foreach (var number in Enumerable.Range(1, input - 1))
             {
-                if (direction == Direction.Right)
+                switch (direction)
                 {
-                    x++;
-                    if (x == boundary && y == -boundary)
-                    {
-                        boundary++;
-                        continue;
-                    }
-                    if (x == boundary) direction = Direction.Up;
-                    continue;
-                }
-                if (direction == Direction.Up)
-                {
-                    y++;
-                    if (y == boundary) direction = Direction.Left;
-                    continue;
-                }
-                if (direction == Direction.Left)
-                {
-                    x--;
-                    if (x == -boundary) direction = Direction.Down;
-                    continue;
-                }
-                if (direction == Direction.Down)
-                {
-                    y--;
-                    if (y == -boundary) direction = Direction.Right;
-                    continue;
+                    case Direction.Right:
+                        x++;
+                        if (x == boundary && y == -boundary)
+                        {
+                            boundary++;
+                        }
+                        else if (x == boundary) direction = Direction.Up;
+                        break;
+
+                    case Direction.Up:
+                        y++;
+                        if (y == boundary) direction = Direction.Left;
+                        break;
+
+                    case Direction.Left:
+                        x--;
+                        if (x == -boundary) direction = Direction.Down;
+                        break;
+
+                    case Direction.Down:
+                        y--;
+                        if (y == -boundary) direction = Direction.Right;
+                        break;
                 }
             }
-            Console.WriteLine($"x {x} y {y}");
             return Math.Abs(x) + Math.Abs(y);
             //x++; //go right; - 2 (1,0)
             //y++; // go up - 3 (1, 1)
