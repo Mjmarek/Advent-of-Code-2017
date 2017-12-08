@@ -49,6 +49,7 @@
     <Compile Include="Day2b.cs" />
     <Compile Include="Day3b.cs" />
     <Compile Include="Day4a.cs" />
+    <Compile Include="Day4b.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

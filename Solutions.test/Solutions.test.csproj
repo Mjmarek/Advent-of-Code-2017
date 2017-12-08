@@ -53,6 +53,7 @@
     <Compile Include="Day2aTest.cs" />
     <Compile Include="Day3aTest.cs" />
     <Compile Include="Day2bTest.cs" />
+    <Compile Include="Day4bTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Day3bTest.cs" />
     <Compile Include="Day4aTest.cs" />
