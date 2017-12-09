@@ -12,6 +12,7 @@ namespace Challenges
         public int Weight { get; set; }
         public List<string> Children { get; set; }
         public string Parent { get; set; }
+        public int TotalWeight { get; set; }
     }
 
         public class Day7a
