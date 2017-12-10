@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Challenges
 {
-    public class Day8a
+    public class Day8
     {
         private string input;
+        public int HighestValue { get; set; }
 
-        public Day8a(string input)
+        public Day8(string input)
         {
             this.input = input;
+            HighestValue = 0;
         }
 
         public int Solve()
@@ -44,6 +46,11 @@ namespace Challenges
                     {
                         var register = line[0];
                         registers[register] -= value;
+                    }
+
+                    if (HighestValue < registers.Values.Max())
+                    {
+                        HighestValue = registers.Values.Max();
                     }
                 }
             }

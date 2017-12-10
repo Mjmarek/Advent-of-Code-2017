@@ -2585,7 +2585,7 @@ myookpi (54)
 olrgu (97)
 swnafht (44) -> lbxdtms, jensj, zkpfzio, jobwpao, jxfimbl";
 
-        public static string Day8aMonica { get; set; } = @"ioe dec 890 if qk > -10
+        public static string Day8Monica { get; set; } = @"ioe dec 890 if qk > -10
 gif inc -533 if qt <= 7
 itw dec 894 if t != 0
 nwe inc 486 if hfh < -2
@@ -3586,7 +3586,7 @@ uoc inc -765 if yg != -1415
 bi inc 637 if nwe == -3005
 ih dec 369 if ih == 1993";
 
-        public static string Day8aRyan { get; set; } = @"sd dec 441 if k != 0
+        public static string Day8Ryan { get; set; } = @"sd dec 441 if k != 0
 lp dec 419 if mxn >= 7
 w inc -592 if icg >= -9
 a dec -29 if q <= 9
