@@ -24,13 +24,13 @@ jptl (61)
 ugml (68) -> gyxo, ebii, jptl
 gyxo (61)
 cntj (57)";
-        [TestMethod]
-        public void ShouldReturn60()
-        {
-            var result = new Day7b(testInput).Solve();
+        //[TestMethod]
+        //public void ShouldReturn60()
+        //{
+        //    var result = new Day7b(testInput).Solve();
 
-            Assert.AreEqual(60, result);
-        }
+        //    Assert.AreEqual(60, result);
+        //}
 
         private string minimalInput = @"pbga (66)
 xhth (57)
