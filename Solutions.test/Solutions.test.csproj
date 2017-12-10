@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Day10aTest.cs" />
     <Compile Include="Day1bTest.cs" />
     <Compile Include="Day1aTest.cs" />
     <Compile Include="Day2aTest.cs" />
