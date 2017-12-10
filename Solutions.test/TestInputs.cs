@@ -4586,5 +4586,8 @@ um dec -823 if gus != 2284
 hey inc -964 if um == 487
 kt inc 387 if cl > -4046
 cl dec -167 if gi == 1209";
+        public static string Day9Ryan => System.IO.File.ReadAllText(@"C:\Users\monic\source\repos\Advent-of-Code-2017\Solutions.test\Inputs\Day9Ryan.txt");
+
+        public static string Day9Monica => System.IO.File.ReadAllText(@"C:\Users\monic\source\repos\Advent-of-Code-2017\Solutions.test\Inputs\Day9Monica.txt");
     }
 }
