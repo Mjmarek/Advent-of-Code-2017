@@ -67,6 +67,7 @@
     <Compile Include="Day3bTest.cs" />
     <Compile Include="Day4aTest.cs" />
     <Compile Include="TestInputs.cs" />
+    <Compile Include="Day12aTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
