@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Challenges
 {
-    public class Day12a
+    public class Day12b
     {
         private string input;
         private List<string> visitedNeighbors;
 
-        public Day12a(string input)
+        public Day12b(string input)
         {
             this.input = input;
             visitedNeighbors = new List<string>();
@@ -24,8 +24,18 @@ namespace Challenges
                 .Split('\n')
                 .Select(line => line.Split(' ').Select(item => item.Trim()).ToArray())
                 .ToDictionary(line => line[0], line => line.Skip(2));
-
-            return FindNeighbors(nodes.First().Key, nodes).Distinct().Count();
+            var groupCount = 0;
+            while (nodes.Values.Count() > 0)
+            {
+                var neighbors =  FindNeighbors(nodes.First().Key, nodes).Distinct().Count();
+                foreach (var visited in visitedNeighbors)
+                {
+                    nodes.Remove(visited);
+                }
+                visitedNeighbors = new List<string>();
+                groupCount += 1;
+            }
+            return groupCount;
         }
 
         public List<string> FindNeighbors(string currentNode, Dictionary<string, IEnumerable<string>> nodes)
