@@ -13,7 +13,7 @@ namespace Solutions.test
             var programs = @"abcde";
             var danceMovesInput = @"s1,x3/4,pe/b";
 
-            var result = new Day16a(programs, danceMovesInput).Solve();
+            var result = new Day16(programs, danceMovesInput).Solve();
 
             Assert.AreEqual("baedc", result);
         }
@@ -23,7 +23,7 @@ namespace Solutions.test
         {
             var programs = @"abcdefghijklmnop";
             var danceMovesInput = TestInputs.Day16Monica;
-            var result = new Day16a(programs, TestInputs.Day16Monica).Solve();
+            var result = new Day16(programs, TestInputs.Day16Monica).Solve();
 
             Assert.AreEqual("ociedpjbmfnkhlga", result);
         }
@@ -33,7 +33,7 @@ namespace Solutions.test
         {
             var programs = @"abcdefghijklmnop";
             var danceMovesInput = TestInputs.Day16Monica;
-            var result = new Day16a(programs, TestInputs.Day16Monica, 1000000000).Solve();
+            var result = new Day16(programs, TestInputs.Day16Monica, 1000000000).Solve();
 
             Assert.AreEqual("gnflbkojhicpmead", result);
         }
@@ -43,7 +43,7 @@ namespace Solutions.test
         {
             var programs = @"abcdefghijklmnop";
             var danceMovesInput = TestInputs.Day16Monica;
-            var result = new Day16a(programs, TestInputs.Day16Ryan, 1000000000).Solve();
+            var result = new Day16(programs, TestInputs.Day16Ryan, 1000000000).Solve();
 
             Assert.AreEqual("ifocbejpdnklamhg", result);
         }
@@ -53,7 +53,7 @@ namespace Solutions.test
         {
             var programs = @"abcdefghijklmnop";
             var danceMovesInput = TestInputs.Day16Ryan;
-            var result = new Day16a(programs, TestInputs.Day16Ryan).Solve();
+            var result = new Day16(programs, TestInputs.Day16Ryan).Solve();
 
             Assert.AreEqual("dcmlhejnifpokgba", result);
         }

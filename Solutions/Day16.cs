@@ -13,7 +13,7 @@ namespace Challenges
         Exchange,
         Flat
     }
-    public class Day16a
+    public class Day16
     {
         private class FlattenedMove : DanceMove
         {
@@ -137,7 +137,7 @@ namespace Challenges
         private string danceMovesInput;
         private int danceCount;
 
-        public Day16a(string programs, string danceMovesInput, int danceCount = 1)
+        public Day16(string programs, string danceMovesInput, int danceCount = 1)
         {
             this.programs = programs.ToCharArray();
             this.danceMovesInput = danceMovesInput;
