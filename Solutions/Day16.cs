@@ -15,6 +15,44 @@ namespace Challenges
     }
     public class Day16
     {
+        private class ManyPartnerMove : DanceMove
+        {
+            public override DanceType Type => DanceType.Flat;
+            private Dictionary<char, char> ops;
+
+            public ManyPartnerMove(List<DanceMove> toFlatten, int programsCount)
+            {
+                var dancers = "abcdefghijklmnop".ToCharArray().Take(programsCount).ToArray();
+                var start = string.Concat(dancers);
+                foreach (var move in toFlatten)
+                {
+                    move.Dance(dancers);
+                }
+                var end = string.Concat(dancers);
+                ops = new Dictionary<char, char>();
+                for (int i = 0; i < programsCount; i++)
+                {
+                    var startValue = start[i];
+                    var endIndex = end.IndexOf(startValue);
+                    var endValue = end[i];
+
+                    ops[startValue] = endValue;
+                }
+            }
+
+            public override void Dance(char[] programs)
+            {
+                var result = new char[programs.Length];
+                for (int i = 0; i < programs.Length; i++)
+                {
+                    var startValue = programs[i];
+                    var replacement = ops[startValue];
+                    
+                    result[i] = replacement;
+                }
+                Array.Copy(result, programs, programs.Length);
+            }
+        }
         private class FlattenedMove : DanceMove
         {
             public override DanceType Type => DanceType.Flat;
@@ -43,8 +81,8 @@ namespace Challenges
                 var result = new char[programs.Length];
                 for (int i = 0; i < programs.Length; i++)
                 {
-                    var destIndex = ops[i];
                     var toMove = programs[i];
+                    var destIndex = ops[i];
                     result[destIndex] = toMove;
                 }
                 Array.Copy(result, programs, programs.Length);
@@ -152,12 +190,12 @@ namespace Challenges
 
             for (int i = 0; i < danceCount; i++)
             {
-                var c = string.Concat(programs);
-                if (repeats.Contains(c)) {
-                    var remainder = 1000000000 % repeats.Count();
-                    return repeats[remainder];
-                }
-                repeats.Add(c);
+                //var c = string.Concat(programs);
+                //if (repeats.Contains(c)) {
+                //    var remainder = 1000000000 % repeats.Count();
+                //    return repeats[remainder];
+                //}
+                //repeats.Add(c);
 
                 foreach (var move in optimizedDanceMoves)
                 {
@@ -200,14 +238,7 @@ namespace Challenges
                 }
             }
 
-            var countBefore = moves.Count();
-            var reduced = RemoveRedundantPartners(moves);
-            while (countBefore != reduced.Count())
-            {
-                countBefore = reduced.Count();
-                reduced = RemoveRedundantPartners(reduced);
-            }
-            return reduced;
+            return RemoveRedundantPartners(moves);
         }
 
         private List<DanceMove> RemoveRedundantPartners(List<DanceMove> moves)
@@ -215,64 +246,10 @@ namespace Challenges
             var swappings = new Dictionary<string, int>();
             var nonP = moves.Where(m => m.Type != DanceType.Partner);
             var p = new List<DanceMove>();
-            var partnerMoves = moves.Where(m => m.Type == DanceType.Partner).Cast<PartnerMove>().ToList();
-            foreach (var move in partnerMoves)
-            {
-                var swapValues = string.Concat(new char[] { move.partner1, move.partner2 }.OrderBy(m => m));
-                if (!swappings.Keys.Contains(swapValues))
-                {
-                    swappings[swapValues] = 1;
-                } else
-                {
-                    swappings[swapValues] += 1;
-                }
-            }
+            var partnerMoves = moves.Where(m => m.Type == DanceType.Partner).ToList();
 
-            var replaced = new List<DanceMove>();
-            var replacing = false;
-            PartnerMove replacer = null;
-            for (int i = 0; i < partnerMoves.Count(); i++)
-            {
-                var current = partnerMoves[i];
-                var pMoveKey = string.Concat((new char[] { partnerMoves[i].partner1, partnerMoves[i].partner2 }).OrderBy(m => m));
-
-                if (replacing)
-                {
-                    var replacerKey = string.Concat((new char[] { replacer.partner1, replacer.partner2 }).OrderBy(m => m));
-                    var partner1Match = current.partner1 == replacerKey[0] || current.partner2 == replacerKey[0];
-                    var partner2Match = current.partner1 == replacerKey[1] || current.partner2 == replacerKey[1];
-                    if (partner1Match && partner2Match)
-                    {
-                        var partners = replaced.Concat(partnerMoves.Skip(i + 1)).ToList();
-                        return nonP.Concat(partners).ToList();
-                    }
-                    else if (partner1Match)
-                    {
-                        var p1 = current.partner1 == replacerKey[0] ? replacerKey[1] : current.partner1;
-                        var p2 = current.partner2 == replacerKey[0] ? replacerKey[1] : current.partner2;
-                        replaced.Add(new PartnerMove(p1, p2));
-                    }
-                    else if (partner2Match)
-                    {
-                        var p1 = current.partner1 == replacerKey[1] ? replacerKey[0] : current.partner1;
-                        var p2 = current.partner2 == replacerKey[1] ? replacerKey[0] : current.partner2;
-                        replaced.Add(new PartnerMove(p1, p2));
-                    }
-                    else
-                    {
-                        replaced.Add(current);
-                    }
-                } else if (swappings[pMoveKey] % 2 == 0)
-                {
-                    replacer = current;
-                    replacing = true;
-                }
-                else
-                {
-                    replaced.Add(current);
-                }
-            }
-            return moves;
+            var manyPartnerMove = new ManyPartnerMove(partnerMoves.ToList(), programs.Count());
+            return new List<DanceMove> { nonP.Single(), manyPartnerMove };
         }
     }
 }
