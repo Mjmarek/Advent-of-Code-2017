@@ -33,7 +33,7 @@ namespace Solutions.test
         {
             var programs = @"abcdefghijklmnop";
             var danceMovesInput = TestInputs.Day16Monica;
-            var result = new Day16(programs, TestInputs.Day16Monica, 100000000).Solve();
+            var result = new Day16(programs, TestInputs.Day16Monica, 1000000000).Solve();
 
             Assert.AreEqual("gnflbkojhicpmead", result);
         }

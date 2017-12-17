@@ -190,12 +190,13 @@ namespace Challenges
 
             for (int i = 0; i < danceCount; i++)
             {
-                //var c = string.Concat(programs);
-                //if (repeats.Contains(c)) {
-                //    var remainder = 1000000000 % repeats.Count();
-                //    return repeats[remainder];
-                //}
-                //repeats.Add(c);
+                var c = string.Concat(programs);
+                if (repeats.Contains(c))
+                {
+                    var remainder = 1000000000 % repeats.Count();
+                    return repeats[remainder];
+                }
+                repeats.Add(c);
 
                 foreach (var move in optimizedDanceMoves)
                 {
